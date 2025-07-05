@@ -1,0 +1,6 @@
+function tipCalculator(billAmount,tipPercent){
+  const tipValue = billAmount*(tipPercent/100);
+  const finalAmount = tipValue+billAmount;
+  console.log(`Your bill is ₹${finalAmount}, including ₹${tipValue} tip.`);
+}
+tipCalculator(386,4);
