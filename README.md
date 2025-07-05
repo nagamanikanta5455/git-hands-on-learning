@@ -1,0 +1,1 @@
+this file contains a mini project on Online Retail Recommendation System, given a kaggle's database to analyse the trend of sales of the products in some countries in particular year span. Based on your purchased products it'll recommend you the most similar product as same as your selected one. 
