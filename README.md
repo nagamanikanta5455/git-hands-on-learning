@@ -1,1 +1,13 @@
-this file contains a mini project on Online Retail Recommendation System, given a kaggle's database to analyse the trend of sales of the products in some countries in particular year span. Based on your purchased products it'll recommend you the most similar product as same as your selected one. 
+##  Technologies Used
+
+- Git (CLI)
+- GitHub
+
+## Purpose
+
+This repository is part of my Full Stack Development learning journey. The goal is to understand how version control works in real-world projects and how Git is used professionally.
+
+##  Connect with Me
+
+- 🔗 [My GitHub](https://github.com/nagamanikanta5455)
+- 📧 nagamanikantakonda@gmail.com
