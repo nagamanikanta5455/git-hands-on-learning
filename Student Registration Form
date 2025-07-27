@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-top: 8px;
+      margin-right: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 48%;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      background-color: #28a745;
+      color: white;
+    }
+
+    button[type="reset"] {
+      background-color: #dc3545;
+      color: white;
+      float: right;
+    }
+
+    @media (max-width: 600px) {
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      button[type="reset"] {
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Registration Form</h2>
+
+  <form>
+    <label>First Name:</label>
+    <input type="text" name="firstname" required>
+
+    <label>Last Name:</label>
+    <input type="text" name="lastname" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <label>Date of Birth:</label>
+    <input type="date" name="date" required>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male" required> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other
+
+    <label>Select Course(s):</label>
+    <input type="checkbox" name="course" value="CSE"> CSE
+    <input type="checkbox" name="course" value="IT"> IT
+    <input type="checkbox" name="course" value="DS"> DS
+    <input type="checkbox" name="course" value="ECE"> ECE
+    <input type="checkbox" name="course" value="AIML"> AIML
+
+    <label>Address:</label>
+    <textarea name="address" rows="4" cols="30" required></textarea>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Clear Form</button>
+    </form>
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop actual submission (optional)
+
+    const firstname = form.firstname.value.trim();
+    const lastname = form.lastname.value.trim();
+    const email = form.email.value.trim();
+
+    if (firstname === "" || lastname === "" || email === "") {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    alert("Form Submitted Successfully");
+
+    console.log("Firstname:", firstname);
+    console.log("Lastname:", lastname);
+    console.log("Email:", email);
+  });
+
+  form.addEventListener("reset", function (e) {
+    const a = confirm("Are you sure to reset all the data?");
+    if (!a) {
+      e.preventDefault();
+    } else {
+      alert("Form cleared!");
+    }
+  });
+});
+</script>
+  </body>
+</html>
