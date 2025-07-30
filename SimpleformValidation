@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form Validation</title>
+</head>
+<body>
+
+  <h2>User Registration</h2>
+
+  <form id="hi">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" placeholder="Enter your username" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" placeholder="Enter your email address" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="error" style="color: red;"></p>
+
+  <script>
+    document.getElementById("hi").addEventListener("submit", function (e) {
+      e.preventDefault(); 
+
+      let username = document.getElementById("username").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let errorMsg = document.getElementById("error");
+
+      errorMsg.textContent = "";
+
+      if (username === "" || email === "") {
+        errorMsg.textContent = "All fields are required";
+        return;
+      }
+
+      if (!email.includes("@") || !email.includes(".")) {
+        errorMsg.textContent = "Enter a valid email address";
+        return;
+      }
+
+      alert("Form submitted successfully!\n\nUsername: " + username + "\nEmail: " + email);
+    });
+  </script>
+
+</body>
+</html>
