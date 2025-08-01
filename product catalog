@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Catalog</title>
+</head>
+<body>
+
+  <h2>Product Catalog</h2>
+  <div id="product-list"></div>
+
+  <script>
+    const productCatalog = [
+      { name: "Smartphone", price: 24999, inStock: true, category: "Electronics" },
+      { name: "Wireless Earbuds", price: 1999, inStock: false, category: "Audio" },
+      { name: "Laptop", price: 54999, inStock: true, category: "Computers" },
+      { name: "Backpack", price: 999, inStock: true, category: "Accessories" }
+    ];
+    productCatalog.forEach((product, index) => {
+      console.log(`Product ${index + 1}:`);
+      console.log(`Name: ${product.name}`);
+      console.log(`Price: ₹${product.price}`);
+      console.log(`In Stock: ${product.inStock ? "Yes" : "No"}`);
+      console.log(`Category: ${product.category}`);
+      console.log("-------------------------");
+    });
+    const container = document.getElementById("product-list");
+
+    productCatalog.forEach((product) => {
+      const productDiv = document.createElement("div");
+      productDiv.style.border = "1px solid gray";
+      productDiv.style.padding = "10px";
+      productDiv.style.margin = "10px 0";
+
+      productDiv.innerHTML = `
+        <h3>${product.name}</h3>
+        <p>Price: ₹${product.price}</p>
+        <p>In Stock: ${product.inStock ? "Yes" : "No"}</p>
+        <p>Category: ${product.category}</p>
+      `;
+
+      container.appendChild(productDiv);
+    });
+  </script>
+
+</body>
+</html>
