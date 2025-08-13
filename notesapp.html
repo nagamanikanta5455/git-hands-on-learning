@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes App</title>
+</head>
+<body>
+  <h2>Notes App</h2>
+  <input type="text" id="taskInput" placeholder="Enter notes">
+  <button id="addTask">Add</button>
+  <ul id="taskList"></ul>
+<script>
+  const taskInput = document.getElementById("taskInput");
+const addTaskBtn = document.getElementById("addTask");
+const taskList = document.getElementById("taskList");
+
+window.addEventListener("load", () => {
+  const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  savedNotes.forEach(note => addNoteToList(note));
+});
+
+addTaskBtn.addEventListener("click", () => {
+  const note = taskInput.value.trim();
+  if (note === "") return;
+  const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  savedNotes.push(note);
+  localStorage.setItem("notes", JSON.stringify(savedNotes));
+  addNoteToList(note);
+  taskInput.value = "";
+});
+
+function addNoteToList(note) {
+  const li = document.createElement("li");
+  li.textContent = note;
+  taskList.appendChild(li);
+}
+
+</script>
+
+</body>
+</html>
