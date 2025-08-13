@@ -12,12 +12,10 @@
   const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTask");
 const taskList = document.getElementById("taskList");
-
 window.addEventListener("load", () => {
   const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
   savedNotes.forEach(note => addNoteToList(note));
 });
-
 addTaskBtn.addEventListener("click", () => {
   const note = taskInput.value.trim();
   if (note === "") return;
@@ -27,7 +25,6 @@ addTaskBtn.addEventListener("click", () => {
   addNoteToList(note);
   taskInput.value = "";
 });
-
 function addNoteToList(note) {
   const li = document.createElement("li");
   li.textContent = note;
@@ -38,3 +35,4 @@ function addNoteToList(note) {
 
 </body>
 </html>
+
