@@ -1,0 +1,5 @@
+n = input("Enter a number: ").strip()
+print(n)
+first = int(n[0])
+last = int(n[-1])
+print(first+last)
